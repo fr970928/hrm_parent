@@ -9,10 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/**
- * @author yaohuaipeng
- * @date 2018/10/8-16:18
- */
+
 @Component
 public class SystemdictionaryClientHystrixFallbackFactory implements FallbackFactory<SystemdictionaryClient> {
 

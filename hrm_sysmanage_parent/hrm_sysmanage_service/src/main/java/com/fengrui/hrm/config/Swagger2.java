@@ -32,7 +32,7 @@ public class Swagger2 {
                 .title("系统管理api")
                 .description("系统管理接口文档说明")
                 .contact(new Contact("fr", "www.baidu.com", "419427855@qq.com"))
-                .version("2.0")
+                .version("1.0")
                 .build();
     }
 

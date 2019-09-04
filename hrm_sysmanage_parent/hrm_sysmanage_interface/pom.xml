@@ -12,6 +12,7 @@
     <artifactId>hrm_sysmanage_interface</artifactId>
 
     <dependencies>
+
         <!--不能直接依赖starter，有自动配置，而消费者是不需要额。-->
 
         <dependency>

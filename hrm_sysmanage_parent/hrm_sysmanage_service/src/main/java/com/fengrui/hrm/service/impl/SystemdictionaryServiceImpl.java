@@ -1,8 +1,8 @@
 package com.fengrui.hrm.service.impl;
 
-import com.fengrui.hrm.domain.Systemdictionary;
-import com.fengrui.hrm.mapper.SystemdictionaryMapper;
-import com.fengrui.hrm.service.ISystemdictionaryService;
+import cn.itsource.hrm.domain.Systemdictionary;
+import cn.itsource.hrm.mapper.SystemdictionaryMapper;
+import cn.itsource.hrm.service.ISystemdictionaryService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  *  服务实现类
  * </p>
  *
- * @author fengrui
+ * @author yhptest
  * @since 2019-08-30
  */
 @Service

@@ -12,6 +12,7 @@
     <artifactId>hrm_zuul_9527</artifactId>
 
    <dependencies>
+
        <!-- springBoot支持 -->
        <dependency>
            <groupId>org.springframework.boot</groupId>

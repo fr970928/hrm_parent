@@ -32,7 +32,7 @@ public interface SystemdictionaryitemClient {
 
     //获取用户
     @RequestMapping("/{id}")
-    Systemdictionaryitem get(@RequestParam(value="id",required=true) Long id);
+    Systemdictionaryitem get(@RequestParam(value = "id", required = true) Long id);
 
 
     /**

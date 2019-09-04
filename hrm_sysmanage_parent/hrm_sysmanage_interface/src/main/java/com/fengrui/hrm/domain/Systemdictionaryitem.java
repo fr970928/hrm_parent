@@ -7,14 +7,7 @@ import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import java.io.Serializable;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author fengrui
- * @since 2019-08-30
- */
+
 @TableName("t_systemdictionaryitem")
 public class Systemdictionaryitem extends Model<Systemdictionaryitem> {
 
