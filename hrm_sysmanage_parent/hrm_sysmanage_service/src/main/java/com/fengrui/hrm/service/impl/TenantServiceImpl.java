@@ -1,10 +1,10 @@
 package com.fengrui.hrm.service.impl;
 
-import cn.itsource.hrm.domain.Employee;
-import cn.itsource.hrm.domain.Tenant;
-import cn.itsource.hrm.mapper.EmployeeMapper;
-import cn.itsource.hrm.mapper.TenantMapper;
-import cn.itsource.hrm.service.ITenantService;
+import com.fengrui.hrm.domain.Employee;
+import com.fengrui.hrm.domain.Tenant;
+import com.fengrui.hrm.mapper.EmployeeMapper;
+import com.fengrui.hrm.mapper.TenantMapper;
+import com.fengrui.hrm.service.ITenantService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -14,14 +14,6 @@ import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author yhptest
- * @since 2019-09-02
- */
 @Service
 public class TenantServiceImpl extends ServiceImpl<TenantMapper, Tenant> implements ITenantService {
 

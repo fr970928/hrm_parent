@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SysmanageService9001Application.class)
+@SpringBootTest(classes = SysManage9001Application.class)
 public class MyTest {
 
     @Autowired

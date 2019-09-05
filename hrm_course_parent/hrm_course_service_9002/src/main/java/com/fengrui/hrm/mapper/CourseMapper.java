@@ -12,4 +12,11 @@ import java.util.List;
 public interface CourseMapper extends BaseMapper<Course> {
 
     List<Course> loadListPage(Page<Course> page, @Param("query") CourseQuery query);
+
+    //上线
+    void batchOnline(List<Long> ids);
+
+    //下线
+    void batchOffline(List<Long> ids);
+
 }

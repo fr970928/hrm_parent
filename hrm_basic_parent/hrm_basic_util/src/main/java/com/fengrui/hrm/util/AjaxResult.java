@@ -14,6 +14,7 @@ public class AjaxResult {
     }
 
     public AjaxResult setSuccess(boolean success) {
+
         this.success = success;
         return this;
     }

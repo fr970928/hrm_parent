@@ -1,5 +1,6 @@
 package com.fengrui.hrm.util;
 
+
 import org.csource.common.NameValuePair;
 import org.csource.fastdfs.*;
 
@@ -92,46 +93,6 @@ public class FastDfsApiOpr {
             return  null;
         } 
     }
-     
-//    @Test
-//    public void testGetFileInfo(){
-//        try {
-//            ClientGlobal.init(conf_filename);
-//
-//            TrackerClient tracker = new TrackerClient();
-//            TrackerServer trackerServer = tracker.getConnection();
-//            StorageServer storageServer = null;
-//
-//            StorageClient storageClient = new StorageClient(trackerServer, storageServer);
-//            FileInfo fi = storageClient.get_file_info("group1", "M00/00/00/wKgRcFV_08OAK_KCAAAA5fm_sy874.conf");
-//            System.out.println(fi.getSourceIpAddr());
-//            System.out.println(fi.getFileSize());
-//            System.out.println(fi.getCreateTimestamp());
-//            System.out.println(fi.getCrc32());
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-     
-//    @Test
-//    public void testGetFileMate(){
-//        try {
-//            ClientGlobal.init(conf_filename);
-//
-//            TrackerClient tracker = new TrackerClient();
-//            TrackerServer trackerServer = tracker.getConnection();
-//            StorageServer storageServer = null;
-//
-//            StorageClient storageClient = new StorageClient(trackerServer,
-//                    storageServer);
-//            NameValuePair nvps [] = storageClient.get_metadata("group1", "M00/00/00/wKgRcFV_08OAK_KCAAAA5fm_sy874.conf");
-//            for(NameValuePair nvp : nvps){
-//                System.out.println(nvp.getName() + ":" + nvp.getValue());
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     /**
      * 删除文件

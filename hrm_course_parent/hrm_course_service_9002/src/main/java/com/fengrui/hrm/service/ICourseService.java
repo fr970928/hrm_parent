@@ -5,7 +5,6 @@ import com.fengrui.hrm.query.CourseQuery;
 import com.fengrui.hrm.util.PageList;
 import com.baomidou.mybatisplus.service.IService;
 
-
 public interface ICourseService extends IService<Course> {
 
     /**
@@ -14,4 +13,11 @@ public interface ICourseService extends IService<Course> {
      * @return
      */
     PageList<Course> selectListPage(CourseQuery query);
+
+    //上线
+    void onLine(Long[] ids);
+
+    //下线
+    void offLine(Long[] ids);
+
 }

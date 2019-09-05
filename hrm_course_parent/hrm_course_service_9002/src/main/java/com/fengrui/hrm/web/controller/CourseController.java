@@ -7,6 +7,8 @@ import com.fengrui.hrm.util.AjaxResult;
 import com.fengrui.hrm.util.PageList;
 import com.fengrui.hrm.util.UserInfoHolder;
 import com.baomidou.mybatisplus.plugins.Page;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/course")
 public class CourseController {
+
+    private Logger logger = LoggerFactory.getLogger(CourseController.class);
+
     @Autowired
     public ICourseService courseService;
 
@@ -90,11 +95,35 @@ public class CourseController {
     @RequestMapping(value = "/json",method = RequestMethod.POST)
     public PageList<Course> json(@RequestBody CourseQuery query)
     {
-//        Page<Course> page = new Page<Course>(query.getPage(),query.getRows());
-//            page = courseService.selectPage(page);
-//            return new PageList<Course>(page.getTotal(),page.getRecords());
-
        return  courseService.selectListPage(query);
 
+    }
+
+    //上线
+    @PostMapping("/onLine")
+    public AjaxResult online(@RequestBody Long[] ids){
+        try {
+            courseService.onLine(ids);
+            return AjaxResult.me();
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("online failed!"+e);
+            return AjaxResult.me().setSuccess(false)
+                    .setMessage("上线失败!"+e.getMessage());
+        }
+    }
+
+    //下线
+    @PostMapping("/offLine")
+    public AjaxResult offLine(@RequestBody Long[] ids){
+        try {
+            courseService.offLine(ids);
+            return AjaxResult.me();
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("online failed!"+e);
+            return AjaxResult.me().setSuccess(false)
+                    .setMessage("上线失败!"+e.getMessage());
+        }
     }
 }
