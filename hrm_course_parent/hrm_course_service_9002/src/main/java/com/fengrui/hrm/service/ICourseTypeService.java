@@ -5,6 +5,8 @@ import com.fengrui.hrm.query.CourseTypeQuery;
 import com.fengrui.hrm.util.PageList;
 import com.baomidou.mybatisplus.service.IService;
 
+import java.util.List;
+
 
 public interface ICourseTypeService extends IService<CourseType> {
 
@@ -14,4 +16,6 @@ public interface ICourseTypeService extends IService<CourseType> {
      * @return
      */
     PageList<CourseType> selectListPage(CourseTypeQuery query);
+
+    List<CourseType> queryTypeTree(Long pid);
 }

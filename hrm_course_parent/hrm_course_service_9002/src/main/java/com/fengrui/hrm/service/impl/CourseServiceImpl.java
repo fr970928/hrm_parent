@@ -28,7 +28,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     @Autowired
     private CourseDetailMapper detailMapper;
     @Autowired
-    private EsCourseClient esCourseClient
+    private EsCourseClient esCourseClient;
 
     @Override
     public PageList<Course> selectListPage(CourseQuery query) {
@@ -55,6 +55,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         List<EsCourse> esCourseList = courseList2EsCourse(courseList);
         esCourseClient.batchSave(esCourseList);
         //批量修改状态
+        //update t_course set status = 1,start_time=xxx where id in (1,2,3)
         mapper.batchOnline(Arrays.asList(ids));
     }
 
@@ -64,6 +65,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         List<EsCourse> esCourseList = courseList2EsCourse(courseList);
         esCourseClient.batchDel(esCourseList);
         //批量修改状态
+        //update t_course set status = 1,start_time=xxx where id in (1,2,3)
         mapper.batchOffline(Arrays.asList(ids));
     }
 
@@ -75,6 +77,8 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         return result;
     }
 
+    // @TODO 不同服务,反3Fn设计冗余字段
+    // @TODO 相同服务,关联查询
     private EsCourse course2EsCourse(Course course) {
         EsCourse  result = new EsCourse();
         result.setId(course.getId());
@@ -108,6 +112,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
 
     @Override
     public boolean deleteById(Serializable id) {
+
         //删除数据库
         mapper.deleteById(id);
         //判断状态-还要删除索引库
