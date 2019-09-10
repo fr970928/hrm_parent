@@ -31,29 +31,31 @@ public class CourseTypeServiceImpl extends ServiceImpl<CourseTypeMapper, CourseT
 
     @Override
     public PageList<CourseType> selectListPage(CourseTypeQuery query) {
-        Page page = new Page(query.getPage(),query.getRows()); //Page
+        Page page = new Page(query.getPage(), query.getRows()); //Page
         List<CourseType> courseTypes = courseTypeMapper.loadListPage(page, query);
-        return new PageList<>(page.getTotal(),courseTypes);
+        return new PageList<>(page.getTotal(), courseTypes);
     }
 
     @Override
     public List<CourseType> queryTypeTree(Long pid) { // -1
 
         List<CourseType> courseTypes = courseTypeCache.getCourseTypes();
-        if (courseTypes== null || courseTypes.size()<1){
+        if (courseTypes == null || courseTypes.size() < 1) {
             System.out.println("db...............");
             //递归
             // return getCourseTypesRecursion(pid);
             //循环
             List<CourseType> courseTypesDb = getCourseTypesLoop(pid);
-            if (courseTypesDb==null|| courseTypesDb.size()<1)
+
+            if (courseTypesDb == null || courseTypesDb.size() < 1) {
                 courseTypesDb = new ArrayList<>();
+            }
             courseTypeCache.setCourseTypes(courseTypesDb);//[]
             return courseTypesDb;
         }
 
         System.out.println("cache...............");
-        return  courseTypes;
+        return courseTypes;
 
     }
 
@@ -63,16 +65,16 @@ public class CourseTypeServiceImpl extends ServiceImpl<CourseTypeMapper, CourseT
         // 查询所有类型
         List<CourseType> allTypes = courseTypeMapper.selectList(null);
         //建立关联关系
-        Map<Long,CourseType> allTypesDto = new HashMap<>();
+        Map<Long, CourseType> allTypesDto = new HashMap<>();
         for (CourseType allType : allTypes) {
-            allTypesDto.put(allType.getId(),allType);
+            allTypesDto.put(allType.getId(), allType);
         }
         //遍历判断是否是第一级,
         for (CourseType type : allTypes) {
             Long pidTmp = type.getPid();
-            if (pidTmp.longValue()== pid.longValue()){
+            if (pidTmp.longValue() == pid.longValue()) {
                 result.add(type);
-            }else{
+            } else {
                 //通过map获取
                 CourseType parent = allTypesDto.get(pidTmp);
                 parent.getChildren().add(type);
@@ -87,8 +89,7 @@ public class CourseTypeServiceImpl extends ServiceImpl<CourseTypeMapper, CourseT
         List<CourseType> children = courseTypeMapper
                 .selectList(new EntityWrapper<CourseType>().eq("pid", pid));
         //出口
-        if (children==null || children.size()<1)
-        {
+        if (children == null || children.size() < 1) {
             return null;
         }
         for (CourseType child : children) {
